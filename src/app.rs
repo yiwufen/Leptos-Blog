@@ -2,7 +2,7 @@ use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
 
-use crate::component::{blog_previews::BlogPreviews, edit_post::EditPost, view_post::ViewPost};
+use crate::component::{blog_previews::BlogPreviews, edit_post::EditPost, view_post::ViewPost, toast::Toast};
 
 #[component]
 fn Navbar() -> impl IntoView {
@@ -31,6 +31,7 @@ pub fn App() -> impl IntoView {
         // id=leptos means cargo-leptos will hot-reload this stylesheet
         <Stylesheet id="leptos" href="/pkg/blog.css"/>
 
+        <Toast />
         <Navbar/>
         // content for this welcome page
         <Router>

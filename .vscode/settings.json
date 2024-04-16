@@ -13,4 +13,7 @@
       "strings": true
     },
     "css.validate": false,
+    "rust-analyzer.procMacro.ignored": {
+    },
+    "rust-analyzer.cargo.features": ["ssr"]
   }
