@@ -18,15 +18,17 @@ RUN cargo leptos build --release -vv
 
 FROM rustlang/rust:nightly-alpine as runner
 
-export LEPTOS_OUTPUT_NAME="leptos_start"
-export LEPTOS_SITE_ROOT="site"
-export LEPTOS_SITE_PKG_DIR="pkg"
-export LEPTOS_SITE_ADDR="0.0.0.0:3000"
-export LEPTOS_RELOAD_PORT="3001"
+
+# Must match your `output-name` from the `metadata.leptos` until the next release
+ENV LEPTOS_OUTPUT_NAME="blog"
+ENV LEPTOS_SITE_ROOT="site"
+ENV LEPTOS_SITE_PKG_DIR="pkg"
+ENV LEPTOS_SITE_ADDR="0.0.0.0:3000"
+ENV LEPTOS_RELOAD_PORT="3001"
 
 WORKDIR /app
 
-COPY --from=builder /work/target/release/leptos_start /app/
+COPY --from=builder /work/target/release/blog /app/
 COPY --from=builder /work/target/site /app/site
 COPY --from=builder /work/Cargo.toml /app/
 COPY --from=builder /work/post.db /app/
@@ -36,4 +38,4 @@ EXPOSE 3001
 
 ENV LEPTOS_SITE_ROOT=./site
 
-CMD ["/app/leptos_start"]
+CMD ["/app/blog"]
