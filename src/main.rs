@@ -5,8 +5,8 @@ async fn main() -> std::io::Result<()> {
     use actix_web::*;
     use leptos::*;
     use leptos_actix::{generate_route_list, LeptosRoutes};
-    use leptos_blog::app::*;
-    
+    use blog::app::*;
+
     env_logger::init();
 
     let conf = get_configuration(None).await.unwrap();

@@ -1,5 +1,5 @@
 [package]
-name = "leptos_blog"
+name = "blog"
 version = "0.1.0"
 edition = "2021"
 
@@ -22,6 +22,7 @@ sqlx ={ version = "0.7", features = ["runtime-async-std", "sqlite", "chrono"], o
 uuid = { version = "1.8.0", features = ["v4"], optional = true }
 log = {version ="0.4", optional = true }
 env_logger = {version="0.11.3", optional = true}
+
 [features]
 csr = ["leptos/csr", "leptos_meta/csr", "leptos_router/csr"]
 hydrate = ["leptos/hydrate", "leptos_meta/hydrate", "leptos_router/hydrate"]
@@ -65,7 +66,7 @@ style-file = "style/main.scss"
 # Optional. Env: LEPTOS_ASSETS_DIR.
 assets-dir = "assets"
 # The IP and port (ex: 127.0.0.1:3000) where the server serves the content. Use it in your server setup.
-site-addr = "127.0.0.1:3000"
+site-addr = "0.0.0.0:3000"
 # The port to use for automatic reload monitoring
 reload-port = 3001
 # [Optional] Command to use when running end2end tests. It will run in the end2end dir.
